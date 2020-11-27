@@ -1,31 +1,16 @@
-import os
-import glob
-import torch
-import numpy as np
-import matplotlib.pyplot as plt
-import torch.nn as nn
-import pandas as pd
-from CustomDataLoader import CustomDataset
-from CGRU import CGRU
-
-import torch.nn.functional as F
-import torch.optim as optim
-import string
-from tqdm import tqdm
-import cv2
-
-from PIL import Image
-from sklearn.model_selection import train_test_split
-from sklearn.metrics import accuracy_score
-import multiprocessing as mp
-from torch.utils.data import DataLoader
-
-from torchvision import transforms
-
-
-from CGRU import CGRU
 import configparser
+import glob
+import os
+
+import pandas as pd
+import torch
+import torch.nn.functional as F
+from torch.utils.data import DataLoader
+from tqdm import tqdm
+
 import global_config
+from CGRU import CGRU
+from CustomDataLoader import CustomDataset
 
 cfg = configparser.ConfigParser()
 cfg.read(global_config.model_config)

@@ -147,15 +147,6 @@ print(encode_text_batch(text_batch=texts))
 number_chars = len(char2idx)
 print(number_chars)
 
-# crnn = CRNN(number_chars)
-# crnn.apply(weights_init)
-# crnn = crnn.to(device)
-
-# text_batch_logits = crnn(imgs.to(device))
-# print(texts)
-# print(text_batch_logits.shape)
-
-
 # print(compute_loss(texts, text_batch_logits))
 
 num_epochs = global_config.epoch
