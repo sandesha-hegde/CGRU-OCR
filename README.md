@@ -1,18 +1,18 @@
-#CGRU-OCR
+# CGRU-OCR
 OCR using Convolution and GRU(Recurrent Neural Network).This repository used pytorch framework to build the OCR.
 
-##Requirements
+## Requirements
 pytorch>1.6.0</br>
 torchvision>0.7.0
 ```bash
 pip install -r requirments.txt
 ```
-##Dataset
+## Dataset
 Sample data</br>
 ![alt text](dataset/test/A007HA50.png)</br>
 ![alt text](dataset/test/B624HM70.png)</br>
 
-##Sample output
+## Sample output
 ```
      actual     prediction
 0  y186pk93  y-1-86pk---93
