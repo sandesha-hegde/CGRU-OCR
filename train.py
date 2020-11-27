@@ -55,9 +55,9 @@ def weights_init(m):
 train_dataset = CustomDataset(train_dir)
 val_dataset = CustomDataset(val_dir)
 
-train_dataloader = DataLoader(train_dataset, batch_size=4,
+train_dataloader = DataLoader(train_dataset, batch_size=cfg['MODEL PARAM'].getint('batch_size'),
                               num_workers=4, shuffle=True)
-val_dataloader = DataLoader(val_dataset, batch_size=4,
+val_dataloader = DataLoader(val_dataset, batch_size=cfg['MODEL PARAM'].getint('val_batch_size'),
                             num_workers=4, shuffle=False)
 
 imgs, texts = iter(val_dataloader).next()
@@ -158,10 +158,10 @@ print(number_chars)
 
 # print(compute_loss(texts, text_batch_logits))
 
-num_epochs = 50
-lr = 0.001
-weight_decay = 1e-3
-clip_norm = 5
+num_epochs = global_config.epoch
+lr = cfg['MODEL PARAM'].getfloat('lr')
+weight_decay = cfg['MODEL PARAM'].getfloat('weight_decay')
+clip_norm = cfg['MODEL PARAM'].getint('clip_norm')
 
 cgru = CGRU(number_chars)
 cgru.apply(weights_init)
@@ -176,6 +176,7 @@ num_updates_epochs = []
 
 try:
     for epoch in tqdm(range(1, num_epochs + 1)):
+        cgru.train()
         epoch_loss_list = []
         num_updates_epoch = 0
         for image_batch, text_batch in tqdm(train_dataloader):
