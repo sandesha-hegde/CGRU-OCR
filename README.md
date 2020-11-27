@@ -8,7 +8,7 @@ torchvision>0.7.0
 pip install -r requirments.txt
 ```
 ## Dataset
-Sample data</br>
+Sample Input</br>
 ![alt text](dataset/test/A007HA50.png)</br>
 ![alt text](dataset/test/B624HM70.png)</br>
 
